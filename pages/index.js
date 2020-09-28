@@ -1,65 +1,77 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import SocialMediaLink from '../components/SocialMediaLink'
 
-export default function Home() {
+export default () => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <div>
+      <div
+        style={{
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundImage: 'url(/rocket.jpg)',
+          backgroundSize: 'cover',
+          color: 'white',
+        }}
+      >
+        <div style={{ margin: 'auto', width: '90%', maxWidth: '600px' }}>
+          <h1>
+            <img src='/logo.png' style={{ width: '90%' }} />
+          </h1>
+          <p>
+            A student driven rocket organisation at KTH, Stockholm, Sweden. We
+            develop and build rockets and have the goal to break the european
+            student altitude record.
+          </p>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '0',
+            left: '0',
+            display: 'flex',
+          }}
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+          <SocialMediaLink
+            text='@aesirkth'
+            href='https://www.instagram.com/aesirkth'
+            image='/instagram.png'
+          />
+          <SocialMediaLink
+            text='@aesirkth'
+            image='/facebook.png'
+            href='https://www.facebook.com/aesirkth/'
+          />
+          <SocialMediaLink
+            text='Aesir'
+            href='https://www.youtube.com/channel/UC9lQIzjSvOyuEHL602m6OQQ'
+            image='/youtube.png'
+          />
+        </div>
+      </div>
+      <div style={{ margin: '50px auto', maxWidth: '800px' }}>
+        <h2>Our work</h2>
+        <h3>Mjolnir</h3>
+        <p>
+          Sigmundr is our newest rocket project! It was named after Simon
+          Westerlund who started this association and also donated his homemade
+          engine to us. The goal of this project is to improve on what we
+          learned from our previous rocket Odin and get one step closer on
+          designing our own hybrid engine from scratch.
+        </p>
+      </div>
+      <div>
+        <h2>Meet our members</h2>
+        <p>
+          We have over 30 active members with a broad variety of roles ranging
+          all the way from specific role in a project to handling the
+          associations overall economy etc. Here below we introduce some of
+          them!
+        </p>
+      </div>
+      <div>
+        <h2>Sponsors</h2>
+      </div>
     </div>
   )
 }

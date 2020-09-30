@@ -14,6 +14,7 @@ export default function NavBar() {
         padding: '10px',
         background: 'white',
         boxShadow: '0 0 5px 1px #888',
+        zIndex: 1000,
       }}
     >
       <div

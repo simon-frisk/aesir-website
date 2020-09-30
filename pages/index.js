@@ -2,6 +2,7 @@ import SocialMediaLink from '../components/SocialMediaLink'
 import CounterAnimation from '../components/CounterAnimation'
 import { Client } from '../prismic-config'
 import { RichText } from 'prismic-reactjs'
+import TextContainer from '../components/TextContainer'
 
 export default function Index(props) {
   return (
@@ -66,7 +67,7 @@ export default function Index(props) {
           </div>
         </div>
       </div>
-      {RichText.render(props.home.data.content)}
+      <TextContainer>{RichText.render(props.home.data.content)}</TextContainer>
     </div>
   )
 }

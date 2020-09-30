@@ -1,14 +1,15 @@
 import { Client } from '../prismic-config'
 import { RichText } from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
+import TextContainer from '../components/TextContainer'
 
 export default function Projects(props) {
   return (
-    <div>
+    <TextContainer>
       {props.projects.map(project => (
         <Project project={project} />
       ))}
-    </div>
+    </TextContainer>
   )
 }
 

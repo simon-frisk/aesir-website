@@ -1,15 +1,29 @@
-export default function Projects() {
+import { Client } from '../prismic-config'
+import { RichText } from 'prismic-reactjs'
+import Prismic from 'prismic-javascript'
+
+export default function Projects(props) {
   return (
     <div>
-      <h2>Projects</h2>
-      <h3>Mjolnir</h3>
-      <p>
-        Sigmundr is our newest rocket project! It was named after Simon
-        Westerlund who started this association and also donated his homemade
-        engine to us. The goal of this project is to improve on what we learned
-        from our previous rocket Odin and get one step closer on designing our
-        own hybrid engine from scratch.
-      </p>
+      {props.projects.map(project => (
+        <Project project={project} />
+      ))}
     </div>
   )
 }
+
+Projects.getInitialProps = async ctx => {
+  const result = await Client(ctx.req).query(
+    Prismic.Predicates.at('document.type', 'project')
+  )
+  return {
+    projects: result.results.map(result => result.data),
+  }
+}
+
+const Project = ({ project }) => (
+  <div>
+    {RichText.render(project.name)}
+    {RichText.render(project.about)}
+  </div>
+)

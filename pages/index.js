@@ -1,7 +1,9 @@
 import SocialMediaLink from '../components/SocialMediaLink'
 import CounterAnimation from '../components/CounterAnimation'
+import { Client } from '../prismic-config'
+import { RichText } from 'prismic-reactjs'
 
-export default () => {
+export default function Index(props) {
   return (
     <div>
       <div
@@ -22,18 +24,21 @@ export default () => {
           }}
         >
           <img src='/logo.png' style={{ width: '40%' }} />
-          <p>
-            Association of Engineering Students in Rocketry, by students from
-            KTH, Stockholm.
-          </p>
+          {RichText.render(props.home.data.title_text)}
           <div
             style={{
               display: 'flex',
               justifyContent: 'space-between',
             }}
           >
-            <CounterAnimation label='Rockets launched' countTo={2} />
-            <CounterAnimation label='Static fires' countTo={8} />
+            <CounterAnimation
+              label='Rockets launched'
+              countTo={props.home.data.rockets_launched}
+            />
+            <CounterAnimation
+              label='Static fires'
+              countTo={props.home.data.static_fire_tests}
+            />
           </div>
           <div
             style={{
@@ -61,8 +66,16 @@ export default () => {
           </div>
         </div>
       </div>
-      <h2>Who are we?</h2>
-      <p>Helljasjdkfahskdjfhak</p>
+      {RichText.render(props.home.data.content)}
     </div>
   )
+}
+
+Index.getInitialProps = async context => {
+  const req = context.req
+  const home = await Client(req).getSingle('home')
+  console.log('hello', home)
+  return {
+    home,
+  }
 }

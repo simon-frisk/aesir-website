@@ -1,39 +1,51 @@
 import Link from 'next/link'
 
-export default () => (
-  <div
-    style={{
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      display: 'flex',
-      width: '100%',
-      boxSizing: 'border-box',
-      justifyContent: 'space-between',
-      padding: 10,
-      color: 'white',
-    }}
-  >
+export default function NavBar() {
+  return (
     <div
       style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
         display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+        padding: '10px',
+        background: 'white',
+        boxShadow: '0 0 5px 1px #888',
       }}
     >
-      <Link href='/'>
-        <a style={{ margin: '0 10px' }}>🚀Home</a>
-      </Link>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <Link href='/'>
+          <a
+            style={{ margin: '0 10px', display: 'flex', alignItems: 'center' }}
+          >
+            <span>🚀</span>Home
+          </a>
+        </Link>
+        <Link href='/projects'>
+          <a style={{ margin: '0 10px' }}>Projects</a>
+        </Link>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <Link href='/sponsors'>
+          <a style={{ margin: '0 10px' }}>Sponsors</a>
+        </Link>
+        <Link href='/join'>
+          <a style={{ margin: '0 10px' }}>Join Aesir</a>
+        </Link>
+      </div>
     </div>
-    <div
-      style={{
-        display: 'flex',
-      }}
-    >
-      <Link href='/contact'>
-        <a style={{ margin: '0 10px' }}>📬Contact</a>
-      </Link>
-      <Link href='/join'>
-        <a style={{ margin: '0 10px' }}>🔨Join us</a>
-      </Link>
-    </div>
-  </div>
-)
+  )
+}

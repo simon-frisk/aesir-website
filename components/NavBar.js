@@ -12,8 +12,9 @@ export default function NavBar() {
         alignItems: 'center',
         width: '100%',
         padding: '10px',
-        background: 'white',
-        boxShadow: '0 0 5px 1px #888',
+        background: '#333',
+        color: 'white',
+        boxShadow: '0 0 5px 1px #333',
         zIndex: 1000,
       }}
     >

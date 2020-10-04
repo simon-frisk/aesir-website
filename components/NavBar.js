@@ -25,11 +25,10 @@ export default function NavBar() {
         }}
       >
         <Link href='/'>
-          <a
-            style={{ margin: '0 10px', display: 'flex', alignItems: 'center' }}
-          >
-            <span>🚀</span>Home
-          </a>
+          <a style={{ margin: '0 10px' }}>Home</a>
+        </Link>
+        <Link href='/about'>
+          <a style={{ margin: '0 10px' }}>About</a>
         </Link>
         <Link href='/projects'>
           <a style={{ margin: '0 10px' }}>Projects</a>

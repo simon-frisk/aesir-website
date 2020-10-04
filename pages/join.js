@@ -6,16 +6,16 @@ import { useState } from 'react'
 export default function Join(props) {
   return (
     <TextContainer>
-      {RichText.render(props.join.text)}
-      {props.join.currently_recruiting && <JoinForm />}
+      {RichText.render(props.recruitment.text)}
+      {props.recruitment.show_recruitment_form && <JoinForm />}
     </TextContainer>
   )
 }
 
 Join.getInitialProps = async ctx => {
-  const result = await Client(ctx.req).getSingle('join')
+  const result = await Client(ctx.req).getSingle('recruitment')
   return {
-    join: result.data,
+    recruitment: result.data,
   }
 }
 

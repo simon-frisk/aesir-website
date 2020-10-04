@@ -10,7 +10,7 @@ export default function Index(props) {
       <div
         style={{
           height: '100vh',
-          backgroundImage: 'url(/rocket.jpg)',
+          backgroundImage: `url(${props.home.data.hero_image.url})`,
           backgroundSize: 'cover',
           display: 'flex',
           alignItems: 'center',
@@ -75,7 +75,6 @@ export default function Index(props) {
 Index.getInitialProps = async context => {
   const req = context.req
   const home = await Client(req).getSingle('home')
-  console.log('hello', home)
   return {
     home,
   }

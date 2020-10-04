@@ -22,6 +22,7 @@ export default function Index(props) {
           style={{
             padding: '10vh auto',
             maxWidth: '500px',
+            width: '90%',
           }}
         >
           <img src='/logo.png' style={{ width: '40%' }} />

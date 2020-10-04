@@ -1,52 +1,72 @@
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function NavBar() {
+  const [isShow, setIsShow] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    setIsShow(false)
+  }, [router.pathname])
+
   return (
-    <div
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '100%',
-        padding: '10px',
-        background: '#333',
-        color: 'white',
-        boxShadow: '0 0 5px 1px #333',
-        zIndex: 1000,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
+    <div className='navbar'>
+      <span className='menu' onClick={() => setIsShow(!isShow)}>
+        Menu
+      </span>
+      <div>
         <Link href='/'>
-          <a style={{ margin: '0 10px' }}>Home</a>
+          <a>Home</a>
         </Link>
         <Link href='/about'>
-          <a style={{ margin: '0 10px' }}>About</a>
+          <a>About</a>
         </Link>
         <Link href='/projects'>
-          <a style={{ margin: '0 10px' }}>Projects</a>
+          <a>Projects</a>
         </Link>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
+      <div>
         <Link href='/sponsors'>
-          <a style={{ margin: '0 10px' }}>Sponsors</a>
+          <a>Sponsors</a>
         </Link>
         <Link href='/join'>
-          <a style={{ margin: '0 10px' }}>Join Aesir</a>
+          <a>Join Aesir</a>
         </Link>
       </div>
+      <style jsx>{`
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          opacity: 0.9;
+          width: 100%;
+          padding: 10px;
+          background: #222;
+          color: white;
+          z-index: 1000;
+        }
+        a {
+          display: ${isShow ? 'block' : 'none'};
+          margin: 10px;
+        }
+        .menu {
+          margin: 0;
+        }
+        @media (min-width: 600px) {
+          .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          a {
+            display: inline;
+          }
+          .menu {
+            display: none;
+          }
+        }
+      `}</style>
     </div>
   )
 }

@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
+const breakPointWidth = 600
+
 export default function NavBar() {
   const [isShow, setIsShow] = useState(false)
   const router = useRouter()
@@ -12,9 +14,7 @@ export default function NavBar() {
 
   return (
     <div className='navbar'>
-      <span className='menu' onClick={() => setIsShow(!isShow)}>
-        Menu
-      </span>
+      <MenuIcon onClick={() => setIsShow(!isShow)} />
       <div>
         <Link href='/'>
           <a>Home</a>
@@ -45,15 +45,16 @@ export default function NavBar() {
           background: #222;
           color: white;
           z-index: 1000;
+          transition: width 600ms ease-out, height 600ms ease-out;
         }
         a {
           display: ${isShow ? 'block' : 'none'};
           margin: 10px;
         }
-        .menu {
-          margin: 0;
+        a :hover {
+          color: #aaa;
         }
-        @media (min-width: 600px) {
+        @media (min-width: ${breakPointWidth}px) {
           .navbar {
             display: flex;
             justify-content: space-between;
@@ -65,6 +66,33 @@ export default function NavBar() {
           .menu {
             display: none;
           }
+        }
+      `}</style>
+    </div>
+  )
+}
+
+function MenuIcon(props) {
+  return (
+    <div className='container' onClick={props.onClick}>
+      <div className='bar' />
+      <div className='bar' />
+      <div className='bar' />
+      <style jsx>{`
+        .container {
+          cursor: pointer;
+          float: right;
+        }
+
+        .bar {
+          width: 30px;
+          height: 4px;
+          background-color: white;
+          margin: 5px 0;
+        }
+
+        @media (min-width: ${breakPointWidth}px) {
+          display: none;
         }
       `}</style>
     </div>

@@ -2,11 +2,13 @@ import { Client } from '../prismic-config'
 import { RichText } from 'prismic-reactjs'
 import { useState } from 'react'
 import TextContainer from '../components/TextContainer'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Contact(props) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [isRecaptcha, setIsRecaptcha] = useState(false)
 
   return (
     <TextContainer>
@@ -25,6 +27,10 @@ export default function Contact(props) {
           onChange={e => setEmail(e.target.value)}
         />
         <textarea placeholder='Message' />
+        <ReCAPTCHA
+          sitekey='6LdNWtQZAAAAACfhJEFWMd3RF_oSHvlz2yiPQ6vS'
+          onChange={() => setIsRecaptcha(true)}
+        />
         <button type='submit'>Send message</button>
       </form>
     </TextContainer>

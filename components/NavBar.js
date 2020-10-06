@@ -14,19 +14,19 @@ export default function NavBar() {
 
   return (
     <div className='navbar'>
-      <MenuIcon onClick={() => setIsShow(!isShow)} />
-      <div>
+      <div className='menu-left'>
         <Link href='/'>
-          <a>Home</a>
+          <img src='/logo.png' style={{ height: 40, cursor: 'pointer' }} />
         </Link>
+        <MenuIcon onClick={() => setIsShow(!isShow)} />
+      </div>
+      <div>
         <Link href='/about'>
           <a>About</a>
         </Link>
         <Link href='/projects'>
           <a>Projects</a>
         </Link>
-      </div>
-      <div>
         <Link href='/sponsors'>
           <a>Sponsors</a>
         </Link>
@@ -45,7 +45,11 @@ export default function NavBar() {
           background: #222;
           color: white;
           z-index: 1000;
-          transition: width 600ms ease-out, height 600ms ease-out;
+        }
+        .menu-left {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
         a {
           display: ${isShow ? 'block' : 'none'};
@@ -81,7 +85,7 @@ function MenuIcon(props) {
       <style jsx>{`
         .container {
           cursor: pointer;
-          float: right;
+          display: inline;
         }
 
         .bar {

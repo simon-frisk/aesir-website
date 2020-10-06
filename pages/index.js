@@ -25,7 +25,7 @@ export default function Index(props) {
             width: '90%',
           }}
         >
-          <img src='/logo.png' style={{ width: '40%' }} />
+          <img src='/logo.png' style={{ width: '50%' }} />
           {RichText.render(props.home.data.title_text)}
           <div
             style={{

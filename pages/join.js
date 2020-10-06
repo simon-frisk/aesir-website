@@ -2,6 +2,7 @@ import { Client } from '../prismic-config'
 import { RichText } from 'prismic-reactjs'
 import TextContainer from '../components/TextContainer'
 import { useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Join(props) {
   return (
@@ -25,7 +26,6 @@ const JoinForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(name, email)
   }
 
   return (
@@ -41,6 +41,10 @@ const JoinForm = () => {
         placeholder='Email'
         value={email}
         onChange={e => setEmail(e.target.value)}
+      />
+      <ReCAPTCHA
+        sitekey='6LdNWtQZAAAAACfhJEFWMd3RF_oSHvlz2yiPQ6vS'
+        onChange={() => setIsRecaptcha(true)}
       />
       <button type='submit'>Join Aesir!</button>
     </form>

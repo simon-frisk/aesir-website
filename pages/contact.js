@@ -1,14 +1,16 @@
+import { Client } from '../prismic-config'
+import { RichText } from 'prismic-reactjs'
 import { useState } from 'react'
 import TextContainer from '../components/TextContainer'
 
-export default function Contact() {
+export default function Contact(props) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
   return (
     <TextContainer>
-      <h1>Contact</h1>
+      {RichText.render(props.contact.text)}
       <form>
         <input
           type='text'
@@ -27,4 +29,11 @@ export default function Contact() {
       </form>
     </TextContainer>
   )
+}
+
+Contact.getInitialProps = async ctx => {
+  const result = await Client(ctx.req).getSingle('contact')
+  return {
+    contact: result.data,
+  }
 }

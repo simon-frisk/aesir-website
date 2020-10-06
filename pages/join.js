@@ -38,11 +38,11 @@ const JoinForm = () => {
       />
       <input
         type='text'
-        placeholder='email'
+        placeholder='Email'
         value={email}
         onChange={e => setEmail(e.target.value)}
       />
-      <button>Join Aesir!</button>
+      <button type='submit'>Join Aesir!</button>
     </form>
   )
 }

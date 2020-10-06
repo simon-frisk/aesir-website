@@ -30,6 +30,9 @@ export default function NavBar() {
         <Link href='/sponsors'>
           <a>Sponsors</a>
         </Link>
+        <Link href='/contact'>
+          <a>Contact</a>
+        </Link>
         <Link href='/join'>
           <a>Join Aesir</a>
         </Link>

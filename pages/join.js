@@ -26,7 +26,6 @@ const JoinForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(name, email)
   }
 
   return (

@@ -19,12 +19,33 @@ export default function Index(props) {
         }}
       >
         <div
+          id='center_div'
           style={{
             padding: '10vh auto',
             maxWidth: '500px',
             width: '90%',
           }}
         >
+          <style jsx>{`
+            @keyframes fadein {
+              from {
+                opacity: 0;
+              }
+              to {
+                opacity: 1;
+              }
+            }
+            #center_div {
+              padding: 10vh auto;
+              max-width: 500px;
+              width: 90%;
+              animation-name: fadein;
+              animation-duration: 6s;
+              animation-fill-mode: both;
+            }
+
+            
+          `}</style>
           <img src='/logo.png' style={{ width: '60%' }} />
           {RichText.render(props.home.data.title_text)}
           <div

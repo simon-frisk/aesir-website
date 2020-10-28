@@ -11,11 +11,11 @@ export default function Projects(props) {
     <TextContainer>
       <h2>Current projects</h2>
       {activeProjects.map(project => (
-        <Project project={project} />
+        <Project project={project} key={project.name} />
       ))}
       <h2>Past projects</h2>
       {notActiveProjects.map(project => (
-        <Project project={project} />
+        <Project project={project} key={project.name} />
       ))}
     </TextContainer>
   )
@@ -35,9 +35,27 @@ const Project = ({ project }) => {
 
   return (
     <Link href={`/projects/${project.name[0].text}`}>
-      <div style={{boxShadow: '0 0 5px 0 #333', borderRadius: 12, padding: 17, marginTop: 15, cursor: 'pointer'}}>
+      <div id='container'>
         <h3 style={{margin: 0}}>{project.name[0].text}</h3>
         <p style={{margin: 0}}>{textExtract}</p>
+        <style jsx>{`
+          #container {
+            box-shadow: 0 0 5px 0 #333;
+            border-radius: 12px;
+            padding: 17px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: transform .2s;
+          }
+
+          #container:hover {
+            transform: scale(1.05);
+          }
+
+          #container:active {
+            transform: scale(1.02);
+          }
+        `}</style>
       </div>
     </Link>
   )

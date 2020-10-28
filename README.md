@@ -1,30 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aesir website
 
-## Getting Started
+This is the website for [Aesir](aesir.se).
 
-First, run the development server:
+# Docs
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This website is built with [Nextjs](https://nextjs.org/docs/getting-started), which is a framework for the library [React](https://reactjs.org/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Lot's of content for the website comes from [Prismic](https://prismic.io/), a content management system that allow to write website content in an easy way. The content is then pulled directly into this website via Prismic's api.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The website is hosted on Vercel, which makes hosting nextjs increadibly easy. It syncs to the github master branch and automatically publishes commits to the master branch.
 
-## Learn More
+The basic folder structure of this repo is that files in /pages each create on page on the website (this is how nextjs works). There are some reusable components in /components, global stylesheet at /styles/global.css, and assets like images (get's hosted statically automatically) in /public. prismic-config.js contains setup for using the Prismic api.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you have ideas, thoughts, or anything else, you can mail [It Responsible](mailto://it@aesir.se).

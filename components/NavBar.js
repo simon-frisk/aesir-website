@@ -48,11 +48,11 @@ export default function NavBar() {
           position: fixed;
           top: 0;
           left: 0;
-          opacity: 0.9;
+          opacity: 0.99;
           width: 100%;
           padding: 10px;
           background: #222;
-          color: white;
+          color: #ddd;
           z-index: 1000;
         }
         #menu-left {

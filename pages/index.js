@@ -18,14 +18,7 @@ export default function Index(props) {
           color: 'white',
         }}
       >
-        <div
-          id='center_div'
-          style={{
-            padding: '10vh auto',
-            maxWidth: '500px',
-            width: '90%',
-          }}
-        >
+        <div id='center_div'>
           <style jsx>{`
             @keyframes fadein {
               from {

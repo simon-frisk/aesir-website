@@ -6,7 +6,7 @@ import TextContainer from '../components/TextContainer'
 
 export default function Index(props) {
   return (
-    <div>
+    <>
       <div
         style={{
           height: '100vh',
@@ -25,7 +25,7 @@ export default function Index(props) {
             width: '90%',
           }}
         >
-          <img src='/logo.png' style={{ width: '50%' }} />
+          <img src='/logo.png' style={{ width: '60%' }} />
           {RichText.render(props.home.data.title_text)}
           <div
             style={{
@@ -42,6 +42,7 @@ export default function Index(props) {
               countTo={props.home.data.static_fire_tests}
             />
           </div>
+        </div>
           <div
             style={{
               display: 'flex',
@@ -66,10 +67,9 @@ export default function Index(props) {
               image='/youtube.png'
             />
           </div>
-        </div>
       </div>
-      <TextContainer>{RichText.render(props.home.data.content)}</TextContainer>
-    </div>
+      <TextContainer lowTopMargin={true}>{RichText.render(props.home.data.content)}</TextContainer>
+    </>
   )
 }
 

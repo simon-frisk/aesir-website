@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-const breakPointWidth = 600
+const breakPointWidth = 700
 
 export default function NavBar() {
   const [isShow, setIsShow] = useState(false)
@@ -13,8 +13,8 @@ export default function NavBar() {
   }, [router.pathname])
 
   return (
-    <div className='navbar'>
-      <div className='menu-left'>
+    <div id='navbar'>
+      <div id='menu-left'>
         <Link href='/'>
           <img src='/logo.png' style={{ height: 40, cursor: 'pointer' }} />
         </Link>
@@ -38,7 +38,7 @@ export default function NavBar() {
         </Link>
       </div>
       <style jsx>{`
-        .navbar {
+        #navbar {
           position: fixed;
           top: 0;
           left: 0;
@@ -49,7 +49,7 @@ export default function NavBar() {
           color: white;
           z-index: 1000;
         }
-        .menu-left {
+        #menu-left {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -64,16 +64,13 @@ export default function NavBar() {
           color: #aaa;
         }
         @media (min-width: ${breakPointWidth}px) {
-          .navbar {
+          #navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
           }
           a {
             display: inline;
-          }
-          .menu {
-            display: none;
           }
         }
       `}</style>
@@ -83,12 +80,12 @@ export default function NavBar() {
 
 function MenuIcon(props) {
   return (
-    <div className='container' onClick={props.onClick}>
+    <div id='container' onClick={props.onClick}>
       <div className='bar' />
       <div className='bar' />
       <div className='bar' />
       <style jsx>{`
-        .container {
+        #container {
           cursor: pointer;
           display: inline;
         }
@@ -98,6 +95,7 @@ function MenuIcon(props) {
           height: 4px;
           background-color: white;
           margin: 5px 0;
+          border-radius: 2px;
         }
 
         @media (min-width: ${breakPointWidth}px) {

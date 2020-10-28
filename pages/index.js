@@ -43,8 +43,6 @@ export default function Index(props) {
               animation-duration: 6s;
               animation-fill-mode: both;
             }
-
-            
           `}</style>
           <img src='/logo.png' style={{ width: '60%' }} />
           {RichText.render(props.home.data.title_text)}

@@ -57,6 +57,8 @@ export default function NavBar() {
         a {
           display: ${isShow ? 'block' : 'none'};
           margin: 10px;
+          text-decoration: none;
+          color: inherit;
         }
         a :hover {
           color: #aaa;

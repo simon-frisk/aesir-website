@@ -13,7 +13,7 @@ export default function Projects(props) {
   return (
     <TextContainer>
       <Link href='/projects'>
-        <a style={{color: 'blue', textDecoration: 'underline'}}>{'< '}Back</a>
+        <a>{'< '}Back</a>
       </Link>
       {RichText.render(project.name)}
       {RichText.render(project.about)}

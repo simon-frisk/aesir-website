@@ -71,7 +71,7 @@ export default function NavBar() {
 
         @media (max-width: ${breakPointWidth}px) {
           #menu-right {
-            height: ${isShow ? '200px' : 0};
+            height: ${isShow ? '220px' : 0};
             transition: height 1s;
             overflow: hidden;
           }

@@ -2,7 +2,6 @@ import { Client } from '../prismic-config'
 import Prismic from 'prismic-javascript'
 import TextContainer from '../components/TextContainer'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 
 export default function Projects(props) {
   const activeProjects = props.projects.filter(project => project.active)
@@ -10,11 +9,11 @@ export default function Projects(props) {
 
   return (
     <TextContainer>
-      <h2>Current projects</h2>
+      <h1>Current projects</h1>
       {activeProjects.map(project => (
         <Project project={project} key={project.name} />
       ))}
-      <h2>Past projects</h2>
+      <h1>Past projects</h1>
       {notActiveProjects.map(project => (
         <Project project={project} key={project.name} />
       ))}
@@ -40,18 +39,18 @@ const Project = ({ project }) => {
       <div id='container'>
         {project.thumbnail.url && <img src={project.thumbnail.url} />}
         <div>
-          <h3>{project.name[0].text}</h3>
+          <h2>{project.name[0].text}</h2>
           <p>{textExtract}</p>
         </div>
         <style jsx>{`
           #container {
             box-shadow: 0 0 5px 0 #333;
             border-radius: 12px;
-            padding: 17px;
-            margin-top: 15px;
+            margin: 10px 0;
             cursor: pointer;
             transition: transform .2s;
             display: flex;
+            overflow: hidden;
           }
 
           #container:hover {
@@ -63,12 +62,13 @@ const Project = ({ project }) => {
           }
 
           #container > img {
-            width: 150px;
+            width: 170px;
+            max-height: 200px;
             object-fit: cover;
           }
 
           #container > div {
-            margin: 5px;
+            margin: 5px 20px;
           }
           
           @media (max-width: 700px) {

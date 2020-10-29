@@ -2,7 +2,8 @@
 
 body,
 html {
-  font-size: 120%;
+  font-size: 112%;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -44,5 +45,5 @@ h4,
 h5,
 h6,
 p {
-  margin: 0.45em 0;
+  margin: 0.4em 0;
 }

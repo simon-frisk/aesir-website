@@ -14,9 +14,9 @@ export default function CounterAnimation({ label, countTo }) {
   
 
   return (
-    <div>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <span style={{ fontSize: '2em' }}>{value}</span>
-      <p style={{ margin: 0 }}>{label}</p>
+      <p>{label}</p>
     </div>
   )
 }

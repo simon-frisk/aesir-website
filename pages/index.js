@@ -9,7 +9,8 @@ export default function Index(props) {
     <>
       <div
         style={{
-          height: '100vh',
+          position: 'relative',
+          height: '85vh',
           backgroundImage: `url(${props.home.data.hero_image.url})`,
           backgroundSize: 'cover',
           display: 'flex',
@@ -30,23 +31,24 @@ export default function Index(props) {
             }
             #center_div {
               padding: 10vh auto;
-              max-width: 500px;
+              max-width: 600px;
               width: 90%;
+              text-align: center;
               animation-name: fadein;
               animation-duration: 6s;
               animation-fill-mode: both;
             }
           `}</style>
-          <img src='/logo.png' style={{ width: '60%' }} />
+          <img src='/logo.png' style={{ width: '50%' }} />
           {RichText.render(props.home.data.title_text)}
           <div
             style={{
               display: 'flex',
-              justifyContent: 'space-between',
+              justifyContent: 'space-around',
             }}
           >
             <CounterAnimation
-              label='Rockets launched'
+              label='Launches'
               countTo={props.home.data.rockets_launched}
             />
             <CounterAnimation

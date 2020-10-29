@@ -15,7 +15,7 @@ html {
 }
 
 input,
-textarea {
+div[contenteditable] {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
@@ -25,6 +25,13 @@ textarea {
   outline: 0;
   resize: none;
   font-size: 1em;
+}
+
+[contenteditable][placeholder]:empty:before {
+  content: attr(placeholder);
+  position: absolute;
+  color: gray;
+  background-color: transparent;
 }
 
 button {

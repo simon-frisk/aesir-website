@@ -46,7 +46,7 @@ const Project = ({ project }) => {
           #container {
             box-shadow: 0 0 5px 0 #333;
             border-radius: 12px;
-            margin: 10px 0;
+            margin: 15px 0;
             cursor: pointer;
             transition: transform .2s;
             display: flex;

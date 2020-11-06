@@ -1,10 +1,10 @@
-export default ({ children, ...props }) => (
+export default ({ children, lowTopMargin, ...props }) => (
   <div
     {...props}
     style={{
       maxWidth: '700px',
-      width: '90%',
-      margin: '15vh auto',
+      width: '85%',
+      margin: `${lowTopMargin ? '5vh' : '15vh'} auto`,
       ...props.style,
     }}
   >

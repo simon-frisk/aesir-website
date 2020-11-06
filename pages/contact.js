@@ -47,7 +47,7 @@ export default function Contact(props) {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <textarea placeholder='Message' />
+        <div contentEditable placeholder='Message' />
         <ReCAPTCHA
           sitekey='6LdNWtQZAAAAACfhJEFWMd3RF_oSHvlz2yiPQ6vS'
           onChange={() => setIsRecaptcha(true)}

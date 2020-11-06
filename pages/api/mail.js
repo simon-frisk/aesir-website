@@ -1,28 +1,17 @@
-import nodemailer from 'nodemailer'
+import sgMail from '@sendgrid/mail'
 
-const transport = nodemailer.createTransport({
-  host: '',
-  port: 587,
-  secure: false,
-  auth: {
-    user: '',
-    pass: '',
-  },
-})
+sgMail.setApiKey(process.env.EMAIL_API_KEY)
 
 export default function (req, res) {
   if(req.method == 'POST') {
-    transport.sendMail({
-      from:"",
-      to:"",
-      subject: "Contact",
-      text: "This is a test"
-    }, (err, info) => {
-      if(err) {
-        res.status(500).send('Failed to send')
-      } else {
-        res.status(200).send('Message sent')
-      }
-    })
+    const msg = {
+      to: 'it@aesir.se',
+      from: 'it@aesir.se',
+      subject: `Website message: ${req.body.name} : ${req.body.email}`,
+      text: req.body.message,
+    }
+    sgMail.send(msg)
+      .then(() => res.status(200).end())
+      .catch(() => res.status(200).end())
   }
 }

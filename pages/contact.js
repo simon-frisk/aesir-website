@@ -9,11 +9,32 @@ export default function Contact(props) {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [isRecaptcha, setIsRecaptcha] = useState(false)
+  const [error, setError] = useState('')
+
+  function submit(e) {
+    e.preventDefault()
+    if(!name) {
+      setError('Invalid name')
+      return
+    }
+    if(!email) {
+      setError('Invalid email')
+      return
+    }
+    if(!message) {
+      setError('Empty message')
+      return
+    }
+    if(!isRecaptcha) {
+      setError('Recaptcha not confirmed')
+      return
+    }
+  }
 
   return (
     <TextContainer>
       {RichText.render(props.contact.text)}
-      <form>
+      <form onSubmit={submit}>
         <input
           type='text'
           placeholder='Full name'
@@ -31,6 +52,7 @@ export default function Contact(props) {
           sitekey='6LdNWtQZAAAAACfhJEFWMd3RF_oSHvlz2yiPQ6vS'
           onChange={() => setIsRecaptcha(true)}
         />
+        <p style={{color: 'red'}}>{error}</p>
         <button type='submit'>Send message</button>
       </form>
     </TextContainer>

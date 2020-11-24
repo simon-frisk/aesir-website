@@ -42,6 +42,7 @@ const Project = ({ project }) => {
           <h2>{project.name[0].text}</h2>
           <p>{textExtract}</p>
         </div>
+        
         <style jsx>{`
           #container {
             box-shadow: 0 0 5px 0 #333;

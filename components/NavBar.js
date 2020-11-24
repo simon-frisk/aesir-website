@@ -43,6 +43,7 @@ export default function NavBar() {
           <a>Join Aesir</a>
         </Link>
       </div>
+      
       <style jsx>{`
         #navbar {
           position: fixed;

@@ -2,51 +2,17 @@ import SocialMediaLink from '../components/SocialMediaLink'
 import CounterAnimation from '../components/CounterAnimation'
 import { Client } from '../prismic-config'
 import { RichText } from 'prismic-reactjs'
+import Link from 'next/link'
 import TextContainer from '../components/TextContainer'
 
 export default function Index(props) {
   return (
     <>
-      <div
-        style={{
-          position: 'relative',
-          height: '85vh',
-          backgroundImage: `url(${props.home.data.hero_image.url})`,
-          backgroundSize: 'cover',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-        }}
-      >
+      <div id='hero'>
         <div id='center_div'>
-          <style jsx>{`
-            @keyframes fadein {
-              from {
-                opacity: 0;
-              }
-              to {
-                opacity: 1;
-              }
-            }
-            #center_div {
-              padding: 10vh auto;
-              max-width: 600px;
-              width: 90%;
-              text-align: center;
-              animation-name: fadein;
-              animation-duration: 6s;
-              animation-fill-mode: both;
-            }
-          `}</style>
-          <img src='/logo.png' style={{ width: '50%' }} />
+          <img src='/logo.png' id='logo' />
           {RichText.render(props.home.data.title_text)}
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-around',
-            }}
-          >
+          <div id='counters'>
             <CounterAnimation
               label='Launches'
               countTo={props.home.data.rockets_launched}
@@ -57,14 +23,7 @@ export default function Index(props) {
             />
           </div>
         </div>
-          <div
-            style={{
-              display: 'flex',
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-            }}
-          >
+          <div id='social_media_links'>
             <SocialMediaLink
               text='@aesirkth'
               href='https://www.instagram.com/aesirkth'
@@ -82,7 +41,57 @@ export default function Index(props) {
             />
           </div>
       </div>
-      <TextContainer lowTopMargin={true}>{RichText.render(props.home.data.content)}</TextContainer>
+      <TextContainer lowTopMargin={true}>
+          {RichText.render(props.home.data.content)}
+          <Link href='/about'><button>Read more</button></Link>
+      </TextContainer>
+      
+      <style jsx>{`
+        @keyframes fadein {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        #center_div {
+          padding: 10vh auto;
+          max-width: 600px;
+          width: 90%;
+          text-align: center;
+          animation-name: fadein;
+          animation-duration: 6s;
+          animation-fill-mode: both;
+        }
+
+        #hero {
+          position: relative;
+          height: 85vh;
+          background-image: url(${props.home.data.hero_image.url});
+          background-size: cover;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+        }
+
+        #logo {
+          width: 50%;
+        }
+
+        #counters {
+          display: flex;
+          justify-content: space-around;
+        }
+
+        #social_media_links {
+          display: flex;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      `}</style>
     </>
   )
 }

@@ -70,6 +70,7 @@ export default function Index(props) {
           height: 85vh;
           background-image: url(${props.home.data.hero_image.url});
           background-size: cover;
+          background-position: center;
           display: flex;
           align-items: center;
           justify-content: center;

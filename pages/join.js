@@ -46,7 +46,7 @@ const JoinForm = () => {
         sitekey='6LdNWtQZAAAAACfhJEFWMd3RF_oSHvlz2yiPQ6vS'
         onChange={() => setIsRecaptcha(true)}
       />
-      <button type='submit'>Join Aesir!</button>
+      <button type='submit'>Join Æsir!</button>
     </form>
   )
 }

@@ -32,10 +32,20 @@ export default function Sponsors(props) {
         margin-top: 12px;
         margin-right: 15px;
         padding: 10px;
-        max-width: 250px;
       }
       #sponsorcard > img {
         height: 60px;
+      }
+
+      @media (min-width: 650px) {
+        #sponsorcard {
+          max-width: 250px;
+        }
+      }
+      @media (max-width: 649px) {
+        #sponsorcard {
+          width: 100%;
+        }
       }
     `}</style>
   </TextContainer>

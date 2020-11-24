@@ -11,11 +11,11 @@ export default function Projects(props) {
     <TextContainer>
       <h1>Current projects</h1>
       {activeProjects.map(project => (
-        <Project project={project} key={project.name} />
+        <Project project={project} key={project.name[0].text} />
       ))}
       <h1>Past projects</h1>
       {notActiveProjects.map(project => (
-        <Project project={project} key={project.name} />
+        <Project project={project} key={project.name[0].text} />
       ))}
     </TextContainer>
   )

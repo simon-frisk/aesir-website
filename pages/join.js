@@ -8,7 +8,7 @@ export default function Join(props) {
   return (
     <TextContainer>
       {RichText.render(props.recruitment.text)}
-      {props.recruitment.show_recruitment_form && <JoinForm />}
+      {(props.recruitment.show_recruitment_form || process.env.NODE_ENV == 'development') && <JoinForm />}
     </TextContainer>
   )
 }

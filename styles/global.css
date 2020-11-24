@@ -51,3 +51,7 @@ button:hover {
 p {
   padding: 0.2em 0;
 }
+
+img {
+  max-width: 100%;
+}

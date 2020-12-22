@@ -40,7 +40,7 @@ export default function NavBar() {
           <a>Contact</a>
         </Link>
         <Link href='/join'>
-          <a>Join Æsir</a>
+          <a>Join ÆSIR</a>
         </Link>
       </div>
       

@@ -6,7 +6,7 @@ export default ({ Component, pageProps }) => {
   return (
     <div>
       <Head>
-        <title>Æsir</title>
+        <title>ÆSIR</title>
         <link rel="icon" type="image/jpg" sizes="16x16" href="/favicon.jpg" />
       </Head>
       <NavBar />
